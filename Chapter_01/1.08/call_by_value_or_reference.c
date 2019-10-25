@@ -36,13 +36,13 @@ int main(int argc, char const *argv[]) {
 }
 
 void handleVariable(int sth) {
-  sth++;
+  ++sth;
 }
 
 void handleArrayVariable(int sth) {
-  sth++;
+  ++sth;
 }
 
 void handleArray(int sth[]) {
-  sth[0]++;
+  ++sth[0];
 }
