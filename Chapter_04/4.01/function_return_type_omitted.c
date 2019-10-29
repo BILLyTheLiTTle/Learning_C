@@ -7,6 +7,7 @@ int main(int argc, char const *argv[]) {
   return 0;
 }
 
+/* warning: return type defaults to 'int' */
 getOne() {
   return 1;
 }
