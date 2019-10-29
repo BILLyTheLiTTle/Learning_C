@@ -1,9 +1,11 @@
 /* This is not a good example of what extern is.
-The extern variables should be declared only once (header file) and only one source file defines it. 
+The extern variables should be declared only once (header file) and only one source file defines it.
 The source file never contains extern declarations.
 
 Try reading this (https://www.quora.com/Whats-the-use-of-extern-with-variable-in-C)
 and when you have a problem understanding what the linker is read this (https://www.quora.com/What-is-a-linker-in-C-programming)!
+
+A better example implemented by me is shown at the Scenario_1 of Chapter 4.04. Read the index.txt also before the example!
 */
 #include <stdio.h>
 #include "myheader.h"

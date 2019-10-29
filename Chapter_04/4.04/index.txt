@@ -1,0 +1,19 @@
+Scenario_1 (as defined here "https://stackoverflow.com/questions/1433204/how-do-i-use-extern-to-share-variables-between-source-files" by Geremia):
+- Create a header file with extern keyword.
+- Create c file with the definition.
+- Include only the header file and compile all of them together.
+
+Scenario_2 (This scenario is wrong. This is not implemented. Use only Scenario_1 steps.):
+- Create a file with extern keyword.
+- Create another with the definition.
+- Include both into a third and use the variable.
+
+Scenario_3:
+- In a file USE a variable at a function.
+- After the function DECLARE the variable as extern.
+- Then DEFINE it.
+
+Scenario_4:
+- In a file DECLARE a variable as extern at a function.
+- After the function DEFINE the variable.
+ - Then USE it.
