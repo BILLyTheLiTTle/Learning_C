@@ -1,0 +1,3 @@
+Scenario_1:
+- Define a macro substitution variable in header_1.c.
+- check the visibility of it from the scenario_1.c by compiling 2 files together.
