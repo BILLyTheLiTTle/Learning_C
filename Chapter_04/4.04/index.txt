@@ -8,12 +8,7 @@ Scenario_2 (This scenario is wrong. This is not implemented. Use only Scenario_1
 - Create another with the definition.
 - Include both into a third and use the variable.
 
-Scenario_3:
-- In a file USE a variable at a function.
-- After the function DECLARE the variable as extern.
-- Then DEFINE it.
-
-Scenario_4:
-- In a file DECLARE a variable as extern at a function.
-- After the function DEFINE the variable.
- - Then USE it.
+Scenario_3 (It is a bad scenario with compile time errors. See example at Chapter 1.10 for declaring variables (a, c) in a single file.):
+- In a file DEFINE/DECLARE two variables at some point.
+- Then DECLARE/DEFINE the variables.
+- Then USE both.
