@@ -1,9 +1,6 @@
 #include <stdio.h>
 
 int main(int argc, char const *argv[]) {
-  int a = 10;
-  int *pa = &a;
-  int **ppa = &pa;
-  printf("%d\n", **ppa);
+  printf("%s\n", argv[0]);
   return 0;
 }
