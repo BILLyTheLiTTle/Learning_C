@@ -13,6 +13,7 @@ int main(int argc, char const *argv[]) {
   printf("%c\n", (*array)[1] ); // w
   printf("%c\n\n", (*array[1]) ); // a
   printf("%c\n", x ); // x
-  printf("%c\n", X ); // c
+  printf("%c\n\n", X ); // c
+  printf("%c\n", (*array)[12] ); // d (the array has 10 columns, so 8 is empty but 12 has data!)
   return 0;
 }
