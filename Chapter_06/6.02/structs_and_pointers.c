@@ -21,7 +21,7 @@ int main(int argc, char const *argv[]) {
   printf("Name [(*pp).name]: %s\n\n", (*pp).name); // Bill
   printf("Age [pp->age]: %d\n", pp->age); // 5
   printf("Name [pp->name]: %s\n\n", pp->name); // Bill
-  printf("First letter of name [*(*pp).name]: %c\n", (*pp).name); // B
+  printf("First letter of name [*(*pp).name]: %c\n", *(*pp).name); // B
   printf("First letter of name [*((*pp).name)]: %c\n", *((*pp).name)); // B
   printf("First letter of name [*pp->name]: %c\n", *pp->name); // B
   printf("First letter of name [*(pp->name)]: %c\n", *(pp->name)); // B

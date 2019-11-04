@@ -34,9 +34,6 @@ int main(int argc, char const *argv[]) {
   short num_s = num_ll;
   printf("Num LL: %llu\nNum I:  %u\nNum S:  %hu\n", num_ll, num_i, num_s);
   printf("Num LL:      %llu\nNum I as LL: %llu\nNum S as LL: %llu\n", num_ll, num_i, num_s);
-
-  printf("\n--Sizes--\nchar: %d\nshort: %d\nint: %d\nlong: %d\nlong long: %d\nfloat: %d\ndouble: %d\nlong double: %d\n",
-    sizeof(char), sizeof(short), sizeof(int), sizeof(long),
-    sizeof(long long), sizeof(float), sizeof(double), sizeof(long double));
+  
   return 0;
 }
