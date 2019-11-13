@@ -16,8 +16,8 @@ int main(int argc, char const *argv[]) {
 
   // with escape character
   char h = '\x48'; // H in hex escape sequence
-  printf("\\x48 = %c\n", h); // H in oct escape sequence
-  char o = '\110';
+  printf("\\x48 = %c\n", h);
+  char o = '\110'; // H in oct escape sequence
   printf("\\110 = %c\n", o);
 
   return 0;
