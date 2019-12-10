@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Must read this also: https://www.geeksforgeeks.org/pointers-c-examples/
+
 int main(int argc, char const *argv[]) {
   char array[3][10] = { {"qwerty"},
                         {"asdfgh"},
