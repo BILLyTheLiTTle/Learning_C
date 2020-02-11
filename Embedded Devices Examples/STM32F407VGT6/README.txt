@@ -1,0 +1,1 @@
+Each one of the folders is a seperate project which could be imported into STM32CubeIDE.
