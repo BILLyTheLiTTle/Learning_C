@@ -43,7 +43,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-/*Declare main.h, define here*/ uint8_t leds_status;
+/*Declare main.h, define here*/ volatile uint8_t leds_status;
+static uint16_t on_board_leds[] = { OnBoardOrangeLED_Pin, OnBoardRedLED_Pin, OnBoardBlueLED_Pin, OnBoardGreenLED_Pin };
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -56,7 +57,7 @@ static void __set_on_board_leds(uint8_t);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-static uint16_t on_board_leds[] = { OnBoardOrangeLED_Pin, OnBoardRedLED_Pin, OnBoardBlueLED_Pin, OnBoardGreenLED_Pin };
+
 /* USER CODE END 0 */
 
 /**
@@ -182,6 +183,8 @@ static void MX_GPIO_Init(void)
 
 void toggle_pins() {
 
+	HAL_NVIC_DisableIRQ(EXTI0_IRQn);
+
 	if (leds_status == 0) {
 		for(int i = 0; i < 4; i++) {
 			HAL_GPIO_WritePin(OnBoardLED_GPIO_Port, on_board_leds[i], GPIO_PIN_RESET);
@@ -207,6 +210,8 @@ void toggle_pins() {
 	else {
 		// TODO show a debug message, just in case
 	}
+
+	HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 }
 
 static void __set_on_board_leds(uint8_t active_led) {

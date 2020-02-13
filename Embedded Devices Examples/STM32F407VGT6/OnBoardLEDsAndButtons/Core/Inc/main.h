@@ -37,7 +37,7 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-/*Declare here, define in main.c*/ extern uint8_t leds_status; // 0 -> all off, 1 -> CW, 2 -> CCW, 3 -> all on
+/*Declare here, define in main.c*/ extern volatile uint8_t leds_status; // 0 -> all off, 1 -> CW, 2 -> CCW, 3 -> all on
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
