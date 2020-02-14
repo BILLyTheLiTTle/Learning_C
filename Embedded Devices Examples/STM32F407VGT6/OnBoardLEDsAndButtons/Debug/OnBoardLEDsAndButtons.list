@@ -572,8 +572,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
  80005fa:	4b14      	ldr	r3, [pc, #80]	; (800064c <MX_GPIO_Init+0xb0>)
  80005fc:	613b      	str	r3, [r7, #16]
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
- 80005fe:	2300      	movs	r3, #0
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+ 80005fe:	2302      	movs	r3, #2
  8000600:	617b      	str	r3, [r7, #20]
   HAL_GPIO_Init(OnBoardBlueButton_GPIO_Port, &GPIO_InitStruct);
  8000602:	f107 030c 	add.w	r3, r7, #12

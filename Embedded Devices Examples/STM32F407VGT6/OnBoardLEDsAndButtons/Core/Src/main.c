@@ -163,7 +163,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : OnBoardBlueButton_Pin */
   GPIO_InitStruct.Pin = OnBoardBlueButton_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(OnBoardBlueButton_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : OnBoardGreenLED_Pin OnBoardOrangeLED_Pin OnBoardRedLED_Pin OnBoardBlueLED_Pin */
