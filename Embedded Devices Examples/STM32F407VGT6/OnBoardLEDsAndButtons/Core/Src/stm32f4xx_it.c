@@ -203,6 +203,9 @@ void SysTick_Handler(void)
 void EXTI0_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI0_IRQn 0 */
+	// To avoid losing important interrupts, it is a good design practice to clear peripherals IRQ pending status bit as their ISR start to be serviced. @Mastering STM32 printed pg204
+	__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_0);
+
 	static uint8_t leds_status_old;
 	if (HAL_GPIO_ReadPin(OnBoardBlueButton_GPIO_Port, OnBoardBlueButton_Pin)) {
 		leds_status_old = leds_status;

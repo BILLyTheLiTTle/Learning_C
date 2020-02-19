@@ -52,7 +52,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
 void toggle_pins(void);
-static void __set_on_board_leds(uint8_t);
+static void set_on_board_leds(uint8_t);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -192,13 +192,13 @@ void toggle_pins() {
 	}
 	else if(leds_status == 1) {
 		for(uint8_t i = 0; i < 4; i++) {
-			__set_on_board_leds(i);
+			set_on_board_leds(i);
 			HAL_Delay(100);
 		}
 	}
 	else if (leds_status == 2) {
 		for(int8_t i = 3; i > -1 ; i--) { // needs signed integer here
-			__set_on_board_leds(i);
+			set_on_board_leds(i);
 			HAL_Delay(100);
 		}
 	}
@@ -214,7 +214,8 @@ void toggle_pins() {
 	HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 }
 
-static void __set_on_board_leds(uint8_t active_led) {
+// renamed as suggested here: https://stackoverflow.com/questions/25090635/use-and-in-c-programs
+static void set_on_board_leds(uint8_t active_led) {
 	for(int i = 0; i < 4; i++) {
 		HAL_GPIO_WritePin(OnBoardLED_GPIO_Port, on_board_leds[i], GPIO_PIN_RESET);
 	}
