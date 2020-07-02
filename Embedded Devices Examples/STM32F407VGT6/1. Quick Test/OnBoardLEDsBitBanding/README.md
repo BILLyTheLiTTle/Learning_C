@@ -1,4 +1,4 @@
-=== Description ===
+### Description
 In this application the target is to:
 - Switch on/off one on board LED using bit-banding
 
