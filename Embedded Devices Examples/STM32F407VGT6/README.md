@@ -8,7 +8,11 @@
 ### OnBoardLEDsBitBanding
 - On Board LEDs with bit-banding
 
-## 2. UART Communication
+## 2. UART/USART Communication
 ### UART_PollingMode
 - Polling UART
+- UART Errors (Failed)
+### UART_InterruptMode
+- Polling UART
+- Transmit/Receive Callback Functions
 - UART Errors
