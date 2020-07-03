@@ -40,8 +40,8 @@ UART_PollingMode.bin \
 all: UART_PollingMode.elf secondary-outputs
 
 # Tool invocations
-UART_PollingMode.elf: $(OBJS) $(USER_OBJS) C:\Users\Tsap\Documents\DevelopmentProjects\Learning_C\Embedded\ Devices\ Examples\STM32F407VGT6\UART_PollingMode\STM32F407VGTX_FLASH.ld
-	arm-none-eabi-gcc -o "UART_PollingMode.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Tsap\Documents\DevelopmentProjects\Learning_C\Embedded Devices Examples\STM32F407VGT6\UART_PollingMode\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_PollingMode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+UART_PollingMode.elf: $(OBJS) $(USER_OBJS) C:\Users\Tsap\Documents\DevelopmentProjects\Learning_C\Embedded\ Devices\ Examples\STM32F407VGT6\2.\ UART\ Communication\UART_PollingMode\STM32F407VGTX_FLASH.ld
+	arm-none-eabi-gcc -o "UART_PollingMode.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Tsap\Documents\DevelopmentProjects\Learning_C\Embedded Devices Examples\STM32F407VGT6\2. UART Communication\UART_PollingMode\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_PollingMode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

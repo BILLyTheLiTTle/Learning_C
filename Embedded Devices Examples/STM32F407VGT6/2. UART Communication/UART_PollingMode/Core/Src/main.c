@@ -45,6 +45,7 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 char readBuf[1];
+int8_t errorCounter = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -95,7 +96,6 @@ int main(void)
   /* USER CODE END 2 */
  
  
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -197,7 +197,9 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart) {
+	errorCounter = errorCounter + 1;
+}
 /* USER CODE END 4 */
 
 /**
