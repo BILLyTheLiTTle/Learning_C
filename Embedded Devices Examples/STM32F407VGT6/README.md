@@ -18,6 +18,12 @@
 - Polling UART
 - UART Errors (Failed)
 ### UART_InterruptMode
-- Polling UART
+- UART in interrupt mode
 - Transmit/Receive Callback Functions
 - UART Errors
+### UART_DMAInterruptMode
+- UART in interrupt mode with DMA
+- Transmit/Receive Callback Functions
+- UART Errors
+
+## 3. DMA
