@@ -43,6 +43,7 @@ void setup()
 
   // set the data rate for the SoftwareSerial port
   mySerial.begin(9600);
+  while (mySerial.available()) mySerial.read();
   mySerial.println("Hello, world");
 
   pinMode(LED_BUILTIN, OUTPUT);
@@ -50,8 +51,9 @@ void setup()
 
 void loop() // run over and over
 {
+  char c = '-';
   if (mySerial.available())  {
-    char c = mySerial.read();  //gets one byte from serial buffer
+    c = mySerial.read();  //gets one byte from serial buffer
     if (c == '0') {
       digitalWrite(LED_BUILTIN, LOW);
       Serial.println("0");
@@ -60,11 +62,28 @@ void loop() // run over and over
       digitalWrite(LED_BUILTIN, HIGH);
       Serial.println("1");
     }
+    else if (c == '2') {
+      Serial.println("2");
+    }
+    
+    else if (c == '3') {
+      Serial.println("3");
+    }
+    
+    else if (c == '4') {
+      Serial.println("4");
+    }
+    
+    else if (c == '5') {
+      Serial.println("5");
+    }
     else {
       static int state = LOW;
       digitalWrite(LED_BUILTIN, state);
       state = !state;
-      Serial.println("weird");
+      Serial.print("weird (");
+      Serial.print( (char) c);
+      Serial.println(")");
     }
   }
   else {
@@ -76,6 +95,6 @@ void loop() // run over and over
     }
     Serial.println("unavailable");
   }
-  mySerial.write(millis());
+  mySerial.write(c);
   delay(1000);
 }

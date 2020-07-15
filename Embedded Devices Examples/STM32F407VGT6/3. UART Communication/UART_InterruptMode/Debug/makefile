@@ -40,8 +40,8 @@ UART_InterruptMode.bin \
 all: UART_InterruptMode.elf secondary-outputs
 
 # Tool invocations
-UART_InterruptMode.elf: $(OBJS) $(USER_OBJS) C:\Users\Tsap\Documents\DevelopmentProjects\Learning_C\Embedded\ Devices\ Examples\STM32F407VGT6\2.\ UART\ Communication\UART_InterruptMode\STM32F407VGTX_FLASH.ld
-	arm-none-eabi-gcc -o "UART_InterruptMode.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Tsap\Documents\DevelopmentProjects\Learning_C\Embedded Devices Examples\STM32F407VGT6\2. UART Communication\UART_InterruptMode\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_InterruptMode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+UART_InterruptMode.elf: $(OBJS) $(USER_OBJS) C:\Users\Tsap\Documents\DevelopmentProjects\Learning_C\Embedded\ Devices\ Examples\STM32F407VGT6\3.\ UART\ Communication\UART_InterruptMode\STM32F407VGTX_FLASH.ld
+	arm-none-eabi-gcc -o "UART_InterruptMode.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Tsap\Documents\DevelopmentProjects\Learning_C\Embedded Devices Examples\STM32F407VGT6\3. UART Communication\UART_InterruptMode\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_InterruptMode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
