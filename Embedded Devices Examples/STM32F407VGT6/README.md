@@ -27,3 +27,5 @@
 - UART Errors
 
 ## 3. DMA
+### DMA_MemoryToMemory
+- Flash to SRAM
