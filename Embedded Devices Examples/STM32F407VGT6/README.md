@@ -26,6 +26,19 @@
 - Transmit/Receive Callback Functions
 - UART Errors
 
-## 3. DMA
+## 4. DMA
 ### DMA_MemoryToMemory
 - Flash to SRAM
+
+## 5. Clock Tree
+### ClockExperiments
+- Change Clock settings
+- Export the clock to MCO
+- Count the clock pulses
+
+## 6. Timers
+### Timers_BaseTimersInterruptMode
+- Create Base Timer
+- In interrupt mode
+- At each UEV send signal (1) to a pin
+- Count the frequency
