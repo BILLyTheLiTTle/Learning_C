@@ -37,7 +37,7 @@
 - Count the clock pulses
 
 ## 6. Timers
-### Timers_BaseTimersInterruptMode
+### Timers_BasicTimersInterruptMode
 - Create Base Timer
 - In interrupt mode
 - At each UEV send signal (1) to a pin
