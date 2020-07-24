@@ -37,8 +37,18 @@
 - Count the clock pulses
 
 ## 6. Timers
-### Timers_BasicTimersInterruptMode
-- Create Base Timer
+### Timers_BasicTimerInterruptMode
+- Create Basic Timer
 - In interrupt mode
 - At each UEV send signal (1) to a pin
 - Count the frequency
+### Timers_GeneralPurposeTimerInterruptMode
+- Create General Purpose Timer
+- In interrupt mode
+- At each UEV send signal (1) to a pin
+- Count the frequency
+### Timers_GeneralPurposeTimerInterruptDMAMode
+- Create General Purpose Timer
+- In interrupt mode
+- In DMA mode
+- Toggle all on-board LEDs
