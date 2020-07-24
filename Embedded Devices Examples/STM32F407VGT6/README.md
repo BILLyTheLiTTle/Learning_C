@@ -28,7 +28,9 @@
 
 ## 4. DMA
 ### DMA_MemoryToMemory
-- Flash to SRAM
+- Read from Flash and write to SRAM
+- Using DMA
+- Understand the source/destination increment
 
 ## 5. Clock Tree
 ### ClockExperiments

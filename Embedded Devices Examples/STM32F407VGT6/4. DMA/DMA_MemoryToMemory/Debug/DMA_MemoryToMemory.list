@@ -398,28 +398,28 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int i = 0;
+  uint8_t i = 0;
  80004ea:	2300      	movs	r3, #0
- 80004ec:	607b      	str	r3, [r7, #4]
-  int a = 0;
+ 80004ec:	71fb      	strb	r3, [r7, #7]
+  uint32_t a = 0;
  80004ee:	2300      	movs	r3, #0
  80004f0:	603b      	str	r3, [r7, #0]
   while (1)
   {
 	  if (i > 3) {
- 80004f2:	687b      	ldr	r3, [r7, #4]
+ 80004f2:	79fb      	ldrb	r3, [r7, #7]
  80004f4:	2b03      	cmp	r3, #3
- 80004f6:	dd0e      	ble.n	8000516 <main+0x4e>
+ 80004f6:	d90e      	bls.n	8000516 <main+0x4e>
 		  i = 0;
  80004f8:	2300      	movs	r3, #0
- 80004fa:	607b      	str	r3, [r7, #4]
+ 80004fa:	71fb      	strb	r3, [r7, #7]
 		  HAL_DMA_Start(&hdma_memtomem_dma2_stream0, (uint32_t) resetData, (uint32_t) sramData, 4);
  80004fc:	4913      	ldr	r1, [pc, #76]	; (800054c <main+0x84>)
  80004fe:	4a14      	ldr	r2, [pc, #80]	; (8000550 <main+0x88>)
  8000500:	2304      	movs	r3, #4
  8000502:	4811      	ldr	r0, [pc, #68]	; (8000548 <main+0x80>)
  8000504:	f000 fc74 	bl	8000df0 <HAL_DMA_Start>
-		  //while (a == 1000000) a++;
+		  //while (a == 1000000) a++; // It works ALMOST the same way as PollForTransfer because it waits for a while. Not until Finishing the transfer but an arbitrary period!
 		  HAL_DMA_PollForTransfer(&hdma_memtomem_dma2_stream0, HAL_DMA_FULL_TRANSFER, HAL_MAX_DELAY);
  8000508:	f04f 32ff 	mov.w	r2, #4294967295
  800050c:	2100      	movs	r1, #0
@@ -431,7 +431,7 @@ int main(void)
 		  HAL_DMA_Start(&hdma_memtomem_dma2_stream0, (uint32_t) flashData, (uint32_t) sramData, i+1);
  8000516:	490f      	ldr	r1, [pc, #60]	; (8000554 <main+0x8c>)
  8000518:	4a0d      	ldr	r2, [pc, #52]	; (8000550 <main+0x88>)
- 800051a:	687b      	ldr	r3, [r7, #4]
+ 800051a:	79fb      	ldrb	r3, [r7, #7]
  800051c:	3301      	adds	r3, #1
  800051e:	480a      	ldr	r0, [pc, #40]	; (8000548 <main+0x80>)
  8000520:	f000 fc66 	bl	8000df0 <HAL_DMA_Start>
@@ -441,9 +441,9 @@ int main(void)
  800052a:	4807      	ldr	r0, [pc, #28]	; (8000548 <main+0x80>)
  800052c:	f000 fd63 	bl	8000ff6 <HAL_DMA_PollForTransfer>
 		  i++;
- 8000530:	687b      	ldr	r3, [r7, #4]
+ 8000530:	79fb      	ldrb	r3, [r7, #7]
  8000532:	3301      	adds	r3, #1
- 8000534:	607b      	str	r3, [r7, #4]
+ 8000534:	71fb      	strb	r3, [r7, #7]
 	  }
 	  HAL_Delay(1000);
  8000536:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
