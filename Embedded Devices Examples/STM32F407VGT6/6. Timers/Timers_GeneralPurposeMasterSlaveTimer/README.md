@@ -7,4 +7,4 @@ In this application the target is to:
 
 The CubeMX HSE clock frequency should stick to 8MHz (cuz the HSE is 8MHz) and if you change it, the timer works unpredictable. You can configure the PLL, though!
 
-When the application is running, open the `SFRs` tab (is next to the `Live Expressions` tab) and find the timers (`TIM1`, `TIM2`). Play at the `.ioc` file with **`Slave Mode:`**` `*`Reset Mode / Trigger Mode`* and see at the `SFRs` tab how the `TIM2->CNT` is resetted or changes respectively.
+When the application is running, open the `SFRs` tab (is next to the `Live Expressions` tab) and find the timers (`TIM1`, `TIM2`). Play at the `.ioc` file with **`Slave Mode:`** *`Reset Mode / Trigger Mode`* and see at the `SFRs` tab how the `TIM2->CNT` is resetted or changes respectively.
