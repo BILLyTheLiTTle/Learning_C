@@ -15,6 +15,12 @@ RM := rm -rf
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(S_DEPS)),)
+-include $(S_DEPS)
+endif
+ifneq ($(strip $(S_UPPER_DEPS)),)
+-include $(S_UPPER_DEPS)
+endif
 ifneq ($(strip $(C_DEPS)),)
 -include $(C_DEPS)
 endif
@@ -40,8 +46,8 @@ OnBoardLEDsAndButtons.bin \
 all: OnBoardLEDsAndButtons.elf secondary-outputs
 
 # Tool invocations
-OnBoardLEDsAndButtons.elf: $(OBJS) $(USER_OBJS) C:\Users\Tsap\Documents\DevelopmentProjects\Learning_C\Embedded\ Devices\ Examples\STM32F407VGT6\OnBoardLEDsAndButtons\STM32F407VGTX_FLASH.ld
-	arm-none-eabi-gcc -o "OnBoardLEDsAndButtons.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Tsap\Documents\DevelopmentProjects\Learning_C\Embedded Devices Examples\STM32F407VGT6\OnBoardLEDsAndButtons\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="OnBoardLEDsAndButtons.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+OnBoardLEDsAndButtons.elf: $(OBJS) $(USER_OBJS) C:\Users\Tsap\Documents\DevelopmentProjects\Learning_C\Embedded\ Devices\ Examples\STM32F407VGT6\1.\ Quick\ Test\OnBoardLEDsAndButtons\STM32F407VGTX_FLASH.ld
+	arm-none-eabi-gcc -o "OnBoardLEDsAndButtons.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Tsap\Documents\DevelopmentProjects\Learning_C\Embedded Devices Examples\STM32F407VGT6\1. Quick Test\OnBoardLEDsAndButtons\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="OnBoardLEDsAndButtons.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -1,5 +1,5 @@
 
-Timers_BasicTimersInterruptMode.elf:     file format elf32-littlearm
+Timers_BasicTimerInterruptMode.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
@@ -39,9 +39,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  17 .debug_line   000066d0  00000000  00000000  0004a205  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    000c3047  00000000  00000000  000508d5  2**0
+ 18 .debug_str    000c3046  00000000  00000000  000508d5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  0011391c  2**0
+ 19 .comment      0000007b  00000000  00000000  0011391b  2**0
                   CONTENTS, READONLY
  20 .debug_frame  0000257c  00000000  00000000  00113998  2**2
                   CONTENTS, READONLY, DEBUGGING

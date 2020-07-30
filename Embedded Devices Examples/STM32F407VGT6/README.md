@@ -54,3 +54,8 @@
 - In interrupt mode
 - In DMA mode
 - Toggle all on-board LEDs
+### Timers_GeneralPurposeMasterSlaveTimer
+- Create General Purpose Master Timer (TIM1)
+- Create General Purpose Slave Timer (TIM2)
+- Generate Event from the TIM1 using `HAL_TIM_GenerateEvent` function
+- Count the frequency

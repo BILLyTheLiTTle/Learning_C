@@ -1042,6 +1042,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
  8000934:	af00      	add	r7, sp, #0
  8000936:	4603      	mov	r3, r0
  8000938:	80fb      	strh	r3, [r7, #6]
+	/*
+	 * Green LED has the less priority than every other.
+	 * Blue LED toggles infinitely, cannot be paused by green LED, can be paused by red LED.
+	 * Red LED toggles 5 times and when it has finished its job and if it has paused the blue LED then the blue LED will start toggle again.
+	 */
 	if (GPIO_Pin == Red_External_LED_IT_Pin) {
  800093a:	88fb      	ldrh	r3, [r7, #6]
  800093c:	2b01      	cmp	r3, #1
