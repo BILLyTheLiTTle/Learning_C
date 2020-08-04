@@ -4,4 +4,4 @@ In this application the target is to:
 - when the blue button is pressed all of the on board LEDs stay on
 - when the blue button in released they switch on/off counter-clockwise
 
-Using interrupts from this tutorial (https://www.youtube.com/watch?v=K_cWqAy3ZHc)
+Using interrupts from this [tutorial](https://www.youtube.com/watch?v=K_cWqAy3ZHc)
