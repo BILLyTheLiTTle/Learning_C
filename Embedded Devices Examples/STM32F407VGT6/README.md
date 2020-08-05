@@ -62,3 +62,7 @@
 ### Timers_GeneralPurposeTimerCaptureMode
 - Create General Purpose Timer in Capture Mode
 - Measure the frequency
+### Timers_GeneralPurposeTimerOutputCompareMode
+- Create General Purpose Timer with 4 channels in Output Compare Mode
+- Change the CCR, ARR values
+- Check the output with a logic analyzer
