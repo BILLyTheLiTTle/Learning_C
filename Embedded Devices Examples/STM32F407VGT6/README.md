@@ -66,3 +66,6 @@
 - Create General Purpose Timer with 4 channels in Output Compare Mode
 - Change the CCR, ARR values
 - Check the output with a logic analyzer
+### Timers_GeneralPurposeTimerPwmMode
+- Create 4 different PWM pulses from the same timer
+- Check the output with a logic analyzer
