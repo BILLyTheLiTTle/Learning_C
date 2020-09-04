@@ -69,3 +69,7 @@
 ### Timers_GeneralPurposeTimerPwmMode
 - Create 4 different PWM pulses from the same timer
 - Check the output with a logic analyzer
+### Timers_GeneralPurposeTimerOnePulseMode
+- Get triggered by event
+- Create 1 pulse after specific delay
+- Check the output with a logic analyzer
