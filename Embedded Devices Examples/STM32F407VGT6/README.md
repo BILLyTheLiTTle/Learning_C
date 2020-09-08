@@ -73,3 +73,7 @@
 - Get triggered by event
 - Create 1 pulse after specific delay
 - Check the output with a logic analyzer
+### Timers_SysTickTimer
+- Toggle a pin every 1ms using SysTick timer
+- Check the output and verify this 1ms toggling with a logic analyzer
+- Change the SysTick to a different timer (using CubeMX) and run again if you wish
