@@ -77,3 +77,9 @@
 - Toggle a pin every 1ms using SysTick timer
 - Check the output and verify this 1ms toggling with a logic analyzer
 - Change the SysTick to a different timer (using CubeMX) and run again if you wish
+
+## 7. ADC
+### ADC_InterruptMode
+- Read the same signal (1 voltage divider)
+- From 3 different channels (2 channels from the voltage divider, 1 from the direct 3V power source)
+- In interrupt mode
