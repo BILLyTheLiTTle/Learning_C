@@ -87,3 +87,9 @@
 - Read the same signal (1 voltage divider)
 - From 3 different channels (2 channels from the voltage divider, 1 from the direct 3V power source)
 - In DMA mode
+### ADC_TimerTriggerDMADiscontinuousMode
+- Read the same signal (1 voltage divider)
+- From 3 different channels (2 channels from the voltage divider, 1 from the direct 3V power source)
+- Use a timer as a trigger every 5 seconds
+- In Discontinuous mode
+- In DMA mode
