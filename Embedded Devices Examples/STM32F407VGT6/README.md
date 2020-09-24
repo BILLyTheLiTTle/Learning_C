@@ -93,3 +93,10 @@
 - Use a timer as a trigger every 5 seconds
 - In Discontinuous mode (1 channel at a time)
 - In DMA mode
+
+## 8. I<sup>2</sup>C
+### I2C_StmMasterArduinoSlave
+- Communicate STM32 MCU (*master*) with Arduino (*slave*)
+- Use sequential transmission in DMA mode (`SEQ_COM_DMA`)
+- Use no sequential transmission in DMA mode (`COM_DMA`)
+- Use no sequential transmission in interrupt mode (`COM_INT`)
