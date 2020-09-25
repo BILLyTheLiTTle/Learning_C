@@ -59,10 +59,10 @@
 - Create General Purpose Slave Timer (TIM2)
 - Generate Event from the TIM1 using `HAL_TIM_GenerateEvent` function
 - Count the frequency
-### Timers_GeneralPurposeTimerCaptureMode
+### [Timers_GeneralPurposeTimerCaptureMode](6.%20Timers/Timers_GeneralPurposeTimerCaptureMode)
 - Create General Purpose Timer in Capture Mode
 - Measure the frequency
-### [Timers_GeneralPurposeTimerOutputCompareMode](6.%20Timers/Timers_GeneralPurposeTimerCaptureMode)
+### [Timers_GeneralPurposeTimerOutputCompareMode](6.%20Timers/Timers_GeneralPurposeTimerOutputCompareMode)
 - Create General Purpose Timer with 4 channels in Output Compare Mode
 - Change the CCR, ARR values
 - Check the output with a logic analyzer
