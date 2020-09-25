@@ -1,15 +1,15 @@
 # Table of Contents
 
-## 1. Quick Test
-### OnBoardLEDsAndButtons
+## 1. [Quick Test](1.%20Quick%20Test)
+### [OnBoardLEDsAndButtons](1.%20Quick%20Test/OnBoardLEDsAndButtons/)
 - On Board LEDs
 - On Board Button
 - Interrupts
-### OnBoardLEDsBitBanding
+### [OnBoardLEDsBitBanding](1.%20Quick%20Test/OnBoardLEDsBitBanding)
 - On Board LEDs with bit-banding
 
-## 2. Interrupts Management
-### Interrupts_PrioritiesSubpriorities
+## 2. [Interrupts Management](2.%20Interrupts%20Management)
+### [Interrupts_PrioritiesSubpriorities](2.%20Interrupts%20Management/Interrupts_PrioritiesSubpriorities)
 - Handle 3 different external LEDs and variables using 3 different interrupts
 - Mix priorities and subpriorities
 
