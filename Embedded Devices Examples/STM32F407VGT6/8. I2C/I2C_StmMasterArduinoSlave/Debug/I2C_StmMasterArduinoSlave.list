@@ -391,7 +391,7 @@ int main(void)
   HAL_I2C_Master_Receive_DMA(&hi2c1, 9<<1, bye_st, 6);
   #endif //COM_DMA
 
-  // Sequential communication with DMA
+  // Sequential communication with DMA -> Does not working well with Arduino
   #ifdef SEQ_COM_DMA
   HAL_I2C_Master_Seq_Transmit_DMA(&hi2c1, 9<<1, hello_arduino, 13, I2C_FIRST_FRAME);
  80004e2:	2301      	movs	r3, #1
