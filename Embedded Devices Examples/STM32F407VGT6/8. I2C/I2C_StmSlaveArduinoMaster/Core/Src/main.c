@@ -47,10 +47,8 @@ DMA_HandleTypeDef hdma_i2c1_tx;
 /* USER CODE BEGIN PV */
 uint8_t hello_arduino[13] = {'H', 'e', 'l', 'l', 'o', ' ', 'A', 'r', 'd', 'u', 'i', 'n', 'o'};
 uint8_t hello_st[8] = {'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'}; // Hello ST
-uint8_t goodbye_arduino[15] = {'G', 'o', 'o', 'd', 'b', 'y', 'e', ' ', 'A', 'r', 'd', 'u', 'i', 'n', 'o'};
-uint8_t bye_st[6] = {'a', 'a', 'a', 'a', 'a', 'a'}; // Bye ST
 
-volatile uint8_t error = 0;
+volatile uint8_t error, error_debug = 0;
 volatile uint8_t aborted = 0;
 /* USER CODE END PV */
 
@@ -101,46 +99,33 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   //#define COM_DMA
-  #define SEQ_COM_DMA
-  //#define COM_INT
-  // Communication with DMA
-  #ifdef COM_DMA
-  HAL_I2C_Master_Transmit_DMA(&hi2c1, 9<<1, hello_arduino, 13);
-  HAL_Delay(100);
-  HAL_I2C_Master_Receive_DMA(&hi2c1, 9<<1, hello_st, 8);
-  HAL_Delay(100);
-  HAL_I2C_Master_Transmit_DMA(&hi2c1, 9<<1, goodbye_arduino, 15);
-  HAL_Delay(100);
-  HAL_I2C_Master_Receive_DMA(&hi2c1, 9<<1, bye_st, 6);
-  #endif //COM_DMA
+  //#define SEQ_COM_DMA
+  #define COM_INT
 
-  // Sequential communication with DMA -> Does not work well with Arduino
-  #ifdef SEQ_COM_DMA
-  HAL_I2C_Master_Seq_Transmit_DMA(&hi2c1, 9<<1, hello_arduino, 13, I2C_FIRST_FRAME);
-  HAL_Delay(100);
-  HAL_I2C_Master_Seq_Receive_DMA(&hi2c1, 9<<1, hello_st, 8, I2C_NEXT_FRAME);
-  HAL_Delay(100);
-  HAL_I2C_Master_Seq_Transmit_DMA(&hi2c1, 9<<1, goodbye_arduino, 15, I2C_NEXT_FRAME);
-  HAL_Delay(100);
-  HAL_I2C_Master_Seq_Receive_DMA(&hi2c1, 9<<1, bye_st, 6, I2C_LAST_FRAME);
-  #endif //SEQ_COM_DMA
-
-  // Communication with Interrupts
-  #ifdef COM_INT
-  HAL_I2C_Master_Transmit_IT(&hi2c1, 9<<1, hello_arduino, 13);
-  HAL_Delay(100);
-  HAL_I2C_Master_Receive_IT(&hi2c1, 9<<1, hello_st, 8);
-  HAL_Delay(100);
-  HAL_I2C_Master_Transmit_IT(&hi2c1, 9<<1, goodbye_arduino, 15);
-  HAL_Delay(100);
-  HAL_I2C_Master_Receive_IT(&hi2c1, 9<<1, bye_st, 6);
-  #endif //COM_INT
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  // Communication with DMA
+	  #ifdef COM_DMA
+	  HAL_I2C_Slave_Transmit_DMA(&hi2c1, hello_arduino, 13);
+	  HAL_I2C_Slave_Receive_DMA(&hi2c1, hello_st, 8);
+  	  #endif //COM_DMA
+
+  	  // Sequential communication with DMA -> Does not work with Arduino
+  	  #ifdef SEQ_COM_DMA
+  	  HAL_I2C_Slave_Seq_Transmit_DMA(&hi2c1, hello_arduino, 13, I2C_FIRST_FRAME);
+	  HAL_I2C_Slave_Seq_Receive_DMA(&hi2c1, hello_st, 8, I2C_LAST_FRAME);
+  	  #endif //SEQ_COM_DMA
+
+  	  // Communication with Interrupts
+	  #ifdef COM_INT
+	  HAL_I2C_Slave_Transmit_IT(&hi2c1, hello_arduino, 13);
+	  HAL_I2C_Slave_Receive_IT(&hi2c1, hello_st, 8);
+	  #endif //COM_INT
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -210,7 +195,7 @@ static void MX_I2C1_Init(void)
   hi2c1.Instance = I2C1;
   hi2c1.Init.ClockSpeed = 100000;
   hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.OwnAddress1 = 16;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c1.Init.OwnAddress2 = 0;
@@ -334,7 +319,7 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-
+	error_debug++;
   /* USER CODE END Error_Handler_Debug */
 }
 

@@ -100,6 +100,10 @@
 - Use sequential transmission in DMA mode (`SEQ_COM_DMA`)
 - Use no sequential transmission in DMA mode (`COM_DMA`)
 - Use no sequential transmission in interrupt mode (`COM_INT`)
-
 ### [I2C_DeviceScanner](8.%20I2C/I2C_DeviceScanner)
 - Scan for devices in the I<sup>2</sup>C network
+### [I2C_StmSlaveArduinoMaster](8.%20I2C/I2C_StmSlaveArduinoMaster)
+- Communicate STM32 MCU (*slave*) with Arduino (*master*)
+- Use sequential transmission in DMA mode (`SEQ_COM_DMA`)
+- Use no sequential transmission in DMA mode (`COM_DMA`)
+- Use no sequential transmission in interrupt mode (`COM_INT`)
