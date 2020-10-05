@@ -1,40 +1,32 @@
-// Wire Master Reader
-// Wire Master Writer
-// by Nicholas Zambetti <http://www.zambetti.com>
+// More info for the example could be found here (https://circuitdigest.com/microcontroller-projects/arduino-spi-communication-tutorial).
 
-// Demonstrates use of the Wire library
-// Reads data from an I2C/TWI slave device
-// Writes data to an I2C/TWI slave device
+#include<SPI.h> 
 
-// Refer to the "Wire Slave Sender" example for use with this (https://www.arduino.cc/en/Tutorial/LibraryExamples/MasterReader)
-// Refer to the "Wire Slave Receiver" example for use with this (https://www.arduino.cc/en/Tutorial/LibraryExamples/MasterWriter)
-
-// Created 29 March 2006
-
-// This example code is in the public domain.
-
-
-#include <Wire.h>
+char hello[13] = {'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'};
+char hello_st[8] = {'H', 'e', 'l', 'l', 'o', ' ', 'S', 'T'};
 
 void setup() {
-  Wire.begin();        // join i2c bus (address optional for master)
+  SPI.begin();                            //Begins the SPI commnuication
+  SPI.setClockDivider(SPI_CLOCK_DIV128);    //Sets clock for SPI communication at 128 (16/128=0.125Mhz)
+  digitalWrite(SS,HIGH);                  // Setting SlaveSelect as HIGH (So master doesnt connnect with slave)
+  
   Serial.begin(9600);  // start serial for output
+  Serial.println("SETUP OK!");
 }
 
-int counter = 0;
-int amount_of_bytes = 13;
-String data_to_send = "Hello ST";
-
 void loop() {
-    Wire.requestFrom(8, amount_of_bytes);    // request X bytes from slave device #8
-
-    while (Wire.available()) { // slave may send less than requested
-      char c = Wire.read(); // receive a byte as character
-      Serial.print(c);         // print the character
+    digitalWrite(SS, LOW);                  //Starts communication with Slave connected to master
+    
+    for (int i = 0; i < 8; i++) {
+      if (i < 8)
+        hello[i] = SPI.transfer(hello_st[i]);
+      else //if (i < 13)
+        hello[i] = SPI.transfer(0);
     }
-    //delay(100);
-    Wire.beginTransmission(8); // transmit to device #8
-    Wire.write(data_to_send.c_str()); // sends data
-    Wire.endTransmission();
-  //delay(500);
+
+    digitalWrite(SS,HIGH);                  // Setting SlaveSelect as HIGH (So master doesnt connnect with slave)
+    
+    Serial.println(hello);
+
+    delay(1000);
 }

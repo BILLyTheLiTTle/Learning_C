@@ -112,3 +112,5 @@
 ### [SPI_StmMasterArduinoSlave](9.%20SPI/SPI_StmMasterArduinoSlave)
 - Communicate STM32 MCU (*master*) with Arduino (*slave*)
 - Software pin is used as CS
+### [SPI_StmSlaveArduinoMaster](9.%20SPI/SPI_StmSlaveArduinoMaster)
+- Communicate STM32 MCU (*slave*) with Arduino (*master*)
