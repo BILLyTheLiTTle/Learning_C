@@ -107,3 +107,8 @@
 - Use sequential transmission in DMA mode (`SEQ_COM_DMA`)
 - Use no sequential transmission in DMA mode (`COM_DMA`)
 - Use no sequential transmission in interrupt mode (`COM_INT`)
+
+## 9. [SPI](9.%20SPI)
+### [SPI_StmMasterArduinoSlave](9.%20SPI/SPI_StmMasterArduinoSlave)
+- Communicate STM32 MCU (*master*) with Arduino (*slave*)
+- Software pin is used as CS
