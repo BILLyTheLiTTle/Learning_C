@@ -13,4 +13,5 @@ Long story short:
 > Ok, well good luck with that, the part is designed to use DMA in such situations as the EOC will likely saturate and overrun, or you'll lose synchronization.
 >
 > You could use multiple ADCx if the part/configuration allows.
-> - clive1 (NFA Crew)
+> 
+> `- clive1 (NFA Crew) -`
