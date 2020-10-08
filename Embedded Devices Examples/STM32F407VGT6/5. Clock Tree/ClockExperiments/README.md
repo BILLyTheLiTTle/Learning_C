@@ -1,4 +1,6 @@
-### Description
+# ClockExperiments
+
+## Learning Outcomes
 In this application the target is to:
 - Change Clock settings
 - Export the clock to MCO
