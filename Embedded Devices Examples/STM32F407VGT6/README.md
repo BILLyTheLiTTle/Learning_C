@@ -114,3 +114,10 @@
 - Software pin is used as CS
 ### [SPI_StmSlaveArduinoMaster](9.%20SPI/SPI_StmSlaveArduinoMaster)
 - Communicate STM32 MCU (*slave*) with Arduino (*master*)
+
+## 10. [CRC](10.%20CRC)
+### [CRC_Calculation](10.%20CRC/CRC_Calculation)
+- Calculate CRC32 on:
+  - A single 32-bit value array
+  - A single 8-bit value array
+  - Two 32-bit values arrays
