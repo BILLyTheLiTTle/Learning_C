@@ -13,9 +13,11 @@ Long story short:
 >In the first case, you calculate CRC from an array of {0x1A100100, 0xqqqqC0AC, 0xqqqqqqqq, 0xqqqqqqqq, 0xqqqqqqqq, 0xqqqqqqqq}, where qq are whatever bytes happen to be in the memory just after raw_data_8_bit[].
 >
 >In the second case, you calculate CRC from {0x00000000, 0x000000001, 0x00000010, 0x0000001A, 0x000000AC, 0x000000C0}
-> - waclawek.jan
+> 
+> `- waclawek.jan -`
 
 and
 
 >sizeof() the arrays is different, the function is taking a word count, not a byte count.​
-> - clive1 (NFA Crew)
+> 
+> `- clive1 (NFA Crew) - `
