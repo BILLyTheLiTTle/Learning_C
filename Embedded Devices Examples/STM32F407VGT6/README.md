@@ -77,6 +77,8 @@
 - Toggle a pin every 1ms using SysTick timer
 - Check the output and verify this 1ms toggling with a logic analyzer
 - Change the SysTick to a different timer (using CubeMX) and run again if you wish
+### [Timers_IWDG](06.%20Timers/Timers_IWDG)
+- Use on-board LEDs to verify that the IWDG is getting refreshed in time without using the window option
 
 ## 7. [ADC](07.%20ADC)
 ### [ADC_InterruptMode](07.%20ADC/ADC_InterruptMode)
