@@ -79,6 +79,10 @@
 - Change the SysTick to a different timer (using CubeMX) and run again if you wish
 ### [Timers_IWDG](06.%20Timers/Timers_IWDG)
 - Use on-board LEDs to verify that the IWDG is getting refreshed in time without using the window option
+### [Timers_WWDG](06.%20Timers/Timers_WWDG)
+- Use on-board LEDs to verify that the WWDG is getting refreshed in time
+- Calculate the time to refresh by hand
+- Use IRQ functions (`HAL_WWDG_IRQHandler` / `HAL_WWDG_EarlyWakeupCallback`)
 
 ## 7. [ADC](07.%20ADC)
 ### [ADC_InterruptMode](07.%20ADC/ADC_InterruptMode)

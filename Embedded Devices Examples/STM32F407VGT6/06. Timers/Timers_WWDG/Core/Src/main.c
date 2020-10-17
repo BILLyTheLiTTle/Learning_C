@@ -36,21 +36,24 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-#define RIGHT_DELAY 18 // <20
-#define WRONG_DELAY 22 // >22
+#define WINDOW_MAX_VALUE 20 // ms
+#define WINDOW_MIN_VALUE 13 // ms
+
+/*Define EWI to use it, comment it to not use it*/
+#define EWI
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-IWDG_HandleTypeDef hiwdg;
+WWDG_HandleTypeDef hwwdg;
 
 /* USER CODE BEGIN PV */
-
+volatile uint8_t times_fired = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_IWDG_Init(void);
+static void MX_WWDG_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -67,7 +70,7 @@ static void MX_IWDG_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	times_fired = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -88,7 +91,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_IWDG_Init();
+  MX_WWDG_Init();
   /* USER CODE BEGIN 2 */
   HAL_GPIO_WritePin(OnBoardGreenLED_GPIO_Port, OnBoardGreenLED_Pin, SET);
   HAL_GPIO_WritePin(OnBoardOrangeLED_GPIO_Port, OnBoardOrangeLED_Pin, SET);
@@ -100,8 +103,18 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_Delay(RIGHT_DELAY);
-	  HAL_IWDG_Refresh(&hiwdg);
+	  #ifdef EWI
+	  /* Delays the main loop more than the window.
+	   * A reboot should happen but HAL_WWDG_EarlyWakeupCallback()
+	   * saves us at the very last tick!
+	   */
+	  HAL_Delay(WINDOW_MAX_VALUE+1);
+	  #else
+	  /* Calculate the delay precisely by hand!
+	   */
+	  HAL_Delay(WINDOW_MIN_VALUE+1);
+	  HAL_WWDG_Refresh(&hwwdg);
+	  #endif
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -125,9 +138,8 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 8;
@@ -154,31 +166,33 @@ void SystemClock_Config(void)
 }
 
 /**
-  * @brief IWDG Initialization Function
+  * @brief WWDG Initialization Function
   * @param None
   * @retval None
   */
-static void MX_IWDG_Init(void)
+static void MX_WWDG_Init(void)
 {
 
-  /* USER CODE BEGIN IWDG_Init 0 */
+  /* USER CODE BEGIN WWDG_Init 0 */
 	// Delay in order to see the blinking when refresh failed
 	HAL_Delay(500);
-  /* USER CODE END IWDG_Init 0 */
+  /* USER CODE END WWDG_Init 0 */
 
-  /* USER CODE BEGIN IWDG_Init 1 */
+  /* USER CODE BEGIN WWDG_Init 1 */
 
-  /* USER CODE END IWDG_Init 1 */
-  hiwdg.Instance = IWDG;
-  hiwdg.Init.Prescaler = IWDG_PRESCALER_8;
-  hiwdg.Init.Reload = 79;
-  if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
+  /* USER CODE END WWDG_Init 1 */
+  hwwdg.Instance = WWDG;
+  hwwdg.Init.Prescaler = WWDG_PRESCALER_4;
+  hwwdg.Init.Window = 69;
+  hwwdg.Init.Counter = 79;
+  hwwdg.Init.EWIMode = WWDG_EWI_ENABLE;
+  if (HAL_WWDG_Init(&hwwdg) != HAL_OK)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN IWDG_Init 2 */
+  /* USER CODE BEGIN WWDG_Init 2 */
 
-  /* USER CODE END IWDG_Init 2 */
+  /* USER CODE END WWDG_Init 2 */
 
 }
 
@@ -273,7 +287,10 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_WWDG_EarlyWakeupCallback(WWDG_HandleTypeDef* hwwdg) {
+	HAL_WWDG_Refresh(hwwdg);
+	times_fired++;
+}
 /* USER CODE END 4 */
 
 /**
