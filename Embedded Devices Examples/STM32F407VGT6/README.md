@@ -127,3 +127,6 @@
   - A single 32-bit value array
   - A single 8-bit value array
   - Two 32-bit values arrays
+  
+## 11. [Power Management](11.%20Power%20Management)
+  
